@@ -1,0 +1,15 @@
+{
+  "name": "tgme",
+  "version": "1.0.0",
+  "description": "Telegram me",
+  "main": "tgme.py",
+  "scripts": {
+    "test": "python3 tgme.py test",
+    "package-main": "python3 -m PyInstaller tgme.py --onefile --console --noconfirm",
+    "package-pre": "rm -rf build/ dist/",
+    "package": "npm run package-pre -s && npm run package-main -s"
+
+  },
+  "author": "Justin Nani",
+  "license": "ISC"
+}
