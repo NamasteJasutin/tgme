@@ -6,9 +6,19 @@ E.G. `brew update | tgme 'Done updating brew'`
 
 # How to use
 Download the go file and compile with
+
 `go build tgme.go`
-`sudo cp tgme /usr/local/bin` or any other path you want to use
-run `tgme`
+
+then 
+
+`sudo cp tgme /usr/local/bin`
+
+To run, simply enter
+
+`tgme some text here`
+
+in a terminal.
+
 The first run will ask you for a Token and userID
 Token = Token for Bot (ask @BotFather)
 UserID = Your user id (ask @userinfobot)
