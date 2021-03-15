@@ -1,11 +1,10 @@
 # tgme
 Send yourself a Telegram message from the CLI
-Started off in Python, migrated to Go.
-Just a simple message sending tool for use in CLI
+
 E.G. `brew update | tgme 'Done updating brew'`
 
 # How to use
-Download the go file and compile with
+Download `tgme.go` and build binary with
 
 `go build tgme.go`
 
