@@ -20,6 +20,9 @@ To run, simply enter
 in a terminal.
 
 The first run will ask you for a Token and userID
+
 Token = Token for Bot (ask @BotFather)
+
 UserID = Your user id (ask @userinfobot)
-Make sure you start the conversation with your bot by pressing the start button or you will messages won't come through.
+
+Make sure you start the conversation with your bot from Telegram by pressing the start button or messages won't come through.
