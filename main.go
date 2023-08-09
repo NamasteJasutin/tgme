@@ -1,15 +1,14 @@
-package tgme
+package main
 
 import (
-	"fmt"
-	"os"
-	"io/ioutil"
-	"strings"
-	"net/http"
+	"bufio"
 	"encoding/json"
+	"fmt"
+	"net/http"
+	"os"
 	"os/user"
 	"path"
-	"bufio"
+	"strings"
 )
 
 type Config struct {
@@ -28,7 +27,7 @@ func noCfg() {
 	fmt.Println("Token:", newToken, "\n", "Recipient", newRecipient, "\nAre you sure? [y\\n]")
 	saveFile, _ := reader.ReadString('\n')
 	saveFile = strings.ToLower(strings.Replace(saveFile, "\n", "", -1))
-	
+
 	data := Config{
 		Token: newToken,
 		Recipient: newRecipient,
@@ -38,7 +37,7 @@ func noCfg() {
 		userDir, _ := user.Current()
 		cfgFile := path.Join(userDir.HomeDir, `tgme.json`)
 		file, _ := json.MarshalIndent(data, "", "  ")
-		ioutil.WriteFile(cfgFile, file, 0644)
+		os.WriteFile(cfgFile, file, 0644)
 	} else {
 		fmt.Println("Operation cancelled. Please start again.")
 		os.Exit(2)
@@ -48,10 +47,10 @@ func noCfg() {
 func readFile(cfg *Config) {
 	userDir, _ := user.Current()
 	cfgFile := path.Join(userDir.HomeDir, `tgme.json`)
-	f, err := ioutil.ReadFile(cfgFile)
+	f, err := os.ReadFile(cfgFile)
 	if err != nil {
 		noCfg()
-		f, err = ioutil.ReadFile(cfgFile) // Read again after CFG is made
+		f, _ = os.ReadFile(cfgFile) // Read again after CFG is made
 	}
 
 	json := json.Unmarshal(f, &cfg)
